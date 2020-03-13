@@ -1,7 +1,14 @@
+#	Makefile	#
+
 NAME		= libftprintf.a
 
-SRCS		= 	functions.c	\
-				main.c
+SRCS		= 	srcs/add_flag.c
+SRCS		+= 	srcs/brain.c
+SRCS		+= 	srcs/find.c
+SRCS		+= 	srcs/find2.c
+SRCS		+= 	srcs/format.c
+SRCS		+= 	srcs/format2.c
+SRCS		+= 	srcs/functions.c
 
 OBJS	= 	${SRCS:.c=.o}
 
@@ -9,14 +16,16 @@ OBJS_BNS	= 	${SRCS_BNS:.c=.o}
 
 CC		=	gcc  
 
-CFLAGS	= 	-Wall -Werror -Wextra
-
-INCLUDES	= 	$(LIBFT_PATH)libft.h	\
-				functions.h
+CFLAGS	= 	-Wall -Werror -Wextra  
 
 MAKE	=	make
 
-LIBFT_PATH	= libft/
+INCLUDES_PATH = ./includes/
+
+LIBFT_PATH	= ./srcs/libft/
+
+INCLUDES	= 	$(LIBFT_PATH)libft.h		\
+				$(INCLUDES_PATH)functions.h
 
 $(NAME)	:	$(OBJS) $(INCLUDES)
 			$(MAKE) -C $(LIBFT_PATH) bonus
